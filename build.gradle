@@ -1,14 +1,6 @@
 plugins {
     id("io.micronaut.application") version "4.5.3"
-    id("com.gradldependencies {\n" +
-            "    annotationProcessor(\"org.projectlombok:lombok\")\n" +
-            "    annotationProcessor(\"io.micronaut:micronaut-http-validation\")\n" +
-            "    annotationProcessor(\"io.micronaut.serde:micronaut-serde-processor\")\n" +
-            "    implementation(\"io.micronaut.aws:micronaut-aws-lambda-events-serde\")\n" +
-            "    implementation(\"io.micronaut.crac:micronaut-crac\")\n" +
-            "    implementation(\"io.micronaut.serde:micronaut-serde-jackson\")\n" +
-            "    compileOnly(\"io.micronaut:micronaut-http-client-jdk\")\n" +
-            "    compileOnly(\"org.projectlombok:lombok\")eup.shadow") version "8.3.6"
+    id("com.gradleup.shadow") version "8.3.6"
     id("io.micronaut.aot") version "4.5.3"
 }
 
@@ -19,9 +11,21 @@ repositories {
     mavenCentral()
 }
 
-
+dependencies {
+    annotationProcessor("org.projectlombok:lombok")
+    annotationProcessor("io.micronaut:micronaut-http-validation")
+    annotationProcessor("io.micronaut.serde:micronaut-serde-processor")
+    implementation("io.micronaut.aws:micronaut-aws-lambda-events-serde")
+    implementation("io.micronaut.crac:micronaut-crac")
+    implementation("io.micronaut.serde:micronaut-serde-jackson")
+    compileOnly("io.micronaut:micronaut-http-client-jdk")
+    compileOnly("org.projectlombok:lombok")
     runtimeOnly("ch.qos.logback:logback-classic")
     testImplementation("io.micronaut:micronaut-http-client-jdk")
+    implementation("org.hibernate.validator:hibernate-validator:9.0.0.CR1")
+    implementation("software.amazon.awssdk:dynamodb:2.31.43")
+    implementation("org.mapstruct:mapstruct:1.6.3")
+    implementation("org.mapstruct:mapstruct-processor:1.6.3")
 }
 
 
